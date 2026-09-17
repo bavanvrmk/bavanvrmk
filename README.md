@@ -18,14 +18,6 @@
 
 ---
 
-```text
-[ OK ] loading identity module...
-[ OK ] mounting /cce...
-[ OK ] initializing systems...
-[ OK ] system ready
-
-> I'm Ready!
-```
 
 ## `01 / about`
 
