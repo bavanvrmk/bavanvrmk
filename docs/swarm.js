@@ -149,6 +149,26 @@
   window.addEventListener('resize',()=>{if(running)finish();});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)finish();});
   reduced.addEventListener('change',finish);
+  const toggle = $('#swarm-toggle'), panel = $('#swarm-panel');
+  function setPanel(open) {
+    panel.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+  toggle.addEventListener('click', e => setPanel(e.pointerType === 'mouse' ? true : panel.hidden));
+  controls.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') setPanel(true); });
+  controls.addEventListener('pointerleave', e => {
+    if (e.pointerType === 'mouse' && !panel.contains(document.activeElement)) setPanel(false);
+  });
+  controls.addEventListener('focusin', e => {
+    if (e.target.matches(':focus-visible') || panel.contains(e.target)) setPanel(true);
+  });
+  controls.addEventListener('focusout', () => queueMicrotask(() => {
+    if (!controls.contains(document.activeElement) && !controls.matches(':hover')) setPanel(false);
+  }));
+  document.addEventListener('pointerdown', e => { if (!controls.contains(e.target)) setPanel(false); });
+  controls.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { toggle.focus(); setPanel(false); }
+  });
   controls.hidden=false;
   // Allow layout and fonts to settle before measuring; all content is visible if JS fails.
   document.fonts.ready.then(start);
