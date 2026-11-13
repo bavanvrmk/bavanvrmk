@@ -8,7 +8,7 @@
 
 <br>
 
-[![Portfolio](https://img.shields.io/badge/PORTFOLIO-FF7EDB?style=for-the-badge&logo=googlechrome&logoColor=1A1330&labelColor=1A1330)](https://bavanvrmk.github.io)
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-FF7EDB?style=for-the-badge&logo=googlechrome&logoColor=1A1330&labelColor=1A1330)](https://bavanvrmk.github.io/bavanvrmk/)
 [![GitHub](https://img.shields.io/badge/GITHUB-7C3AED?style=for-the-badge&logo=github&logoColor=white&labelColor=1A1330)](https://github.com/bavanvrmk)
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-C026D3?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=1A1330)](https://www.linkedin.com/in/bavan-vijaya-raja-m-k-1a9319379/)
 
@@ -22,6 +22,14 @@
 ```
 
 </div>
+
+---
+
+## Watch my portfolio build itself
+
+[**↗ Open the interactive Swarm portfolio**](https://bavanvrmk.github.io/bavanvrmk/)
+
+A swarm of colorful cursors brings my portfolio to life. No extension needed — replay the build, skip straight to the content, or browse with reduced motion.
 
 ---
 
