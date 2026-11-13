@@ -29,7 +29,7 @@
 
 [**↗ Open the interactive Swarm portfolio**](https://bavanvrmk.github.io/bavanvrmk/)
 
-A swarm of colorful cursors brings my portfolio to life. No extension needed — replay the build, skip straight to the content, or browse with reduced motion.
+Six coordinated cursors draw, type, and assemble my portfolio — including a contribution skyline built column by column. Try Tour mode, change the build speed, or go live instantly. No extension needed; reduced motion is supported.
 
 ---
 
