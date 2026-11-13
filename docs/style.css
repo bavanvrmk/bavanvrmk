@@ -11,11 +11,16 @@
 .swarm-active h1 em{background:none;-webkit-text-fill-color:var(--pink)}
 /* Softer surfaces and a compact, accessible corner control. */
 .project{border-radius:22px}.project:before{border-radius:22px}.system-art{border-radius:28px}.chip{border-radius:18px}.node{border-radius:9px}.skyline-console{border-radius:22px}.button{border-radius:12px}.tags span,.skills span{border-radius:8px}.build-outline{border-radius:8px}.contact{border-radius:24px}
-.swarm-controls{left:auto;right:max(22px,env(safe-area-inset-right));bottom:max(22px,env(safe-area-inset-bottom));transform:none;display:block;width:54px;height:54px;max-width:none;padding:0;border:0;border-radius:50%;background:transparent;box-shadow:none;backdrop-filter:none;overflow:visible;white-space:normal}
-.swarm-controls .swarm-orb{display:grid;place-items:center;width:54px;height:54px;padding:14px;border-radius:50%;border:1px solid #8e5b88;background:#261a32ee;color:var(--pink);box-shadow:0 8px 28px #0006,0 0 24px #ff8fce12;cursor:pointer;transition:background .2s,box-shadow .2s}
-.swarm-orb svg{width:25px;height:25px}.swarm-controls .swarm-orb:hover,.swarm-controls .swarm-orb[aria-expanded=true]{background:#44283f;box-shadow:0 8px 28px #0006,0 0 28px #ff8fce26}
-.swarm-panel{position:absolute;right:0;bottom:calc(100% + 12px);display:flex;flex-wrap:wrap;align-items:center;gap:9px;width:300px;max-width:calc(100vw - 44px);padding:18px;border:1px solid #66516c;border-radius:20px;background:#21192ff5;box-shadow:0 12px 45px #0008;backdrop-filter:blur(18px)}
-/* The transparent bridge keeps hover active while moving into the panel. */
-.swarm-panel:after{content:'';position:absolute;left:0;right:0;top:100%;height:14px}.swarm-panel #swarm-status{flex:1;max-width:none;font:11px var(--mono);white-space:nowrap}.swarm-panel .build-progress{top:0;bottom:auto;height:2px;max-width:calc(100% - 36px);left:18px;border-radius:2px}.swarm-panel button{font:11px var(--mono);padding:9px 11px;border-radius:10px}.swarm-panel #replay{margin-left:0}.swarm-panel #swarm-status:after{content:'';display:block}.swarm-panel .live-dot{width:6px;flex:none}.swarm-panel #replay,.swarm-panel #tour{margin-top:4px}.swarm-panel #tour{clear:both}
-@media(max-width:440px){.swarm-controls{right:16px;bottom:max(16px,env(safe-area-inset-bottom))}.swarm-panel{max-width:calc(100vw - 32px)}.project{border-radius:18px}}
-.swarm-panel #swarm-status{flex:1 0 calc(100% - 24px)}
+
+/* A single continuous surface morphs from orb to control capsule. */
+.swarm-controls{left:auto;right:max(22px,env(safe-area-inset-right));bottom:max(22px,env(safe-area-inset-bottom));transform:none;display:block;width:54px;height:54px;max-width:calc(100vw - 32px);padding:0;border:1px solid #8e5b88;border-radius:27px;background:#261a32f5;box-shadow:0 8px 28px #0006,0 0 24px #ff8fce12;backdrop-filter:blur(18px);overflow:hidden;white-space:normal;transition:width .42s cubic-bezier(.22,1,.36,1),height .42s cubic-bezier(.22,1,.36,1),border-radius .42s,background .3s,box-shadow .3s}
+.swarm-controls.is-expanded{width:330px;height:104px;border-radius:32px;background:#21192ff5;box-shadow:0 12px 45px #0008,0 0 28px #ff8fce18}
+.swarm-controls .swarm-orb{position:absolute;right:0;bottom:0;display:grid;place-items:center;width:52px;height:52px;padding:14px;border:0;border-radius:50%;background:transparent;color:var(--pink);box-shadow:none;cursor:pointer;z-index:2}
+.swarm-controls .swarm-orb:hover,.swarm-controls .swarm-orb[aria-expanded=true]{background:transparent;box-shadow:none}
+.swarm-orb svg{width:25px;height:25px;transition:transform .42s cubic-bezier(.22,1,.36,1)}.is-expanded .swarm-orb svg{transform:rotate(135deg) scale(.85)}
+.swarm-controls button:focus-visible{outline-offset:-4px}
+.swarm-panel{position:absolute;left:18px;top:18px;right:18px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;width:294px;max-width:calc(100vw - 70px);padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;backdrop-filter:none;opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .15s,transform .25s,visibility 0s .2s;pointer-events:none}
+.is-expanded .swarm-panel{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .2s .12s,transform .3s .1s,visibility 0s;pointer-events:auto}
+.swarm-panel:after{content:none}.swarm-panel #swarm-status{flex:1 0 calc(100% - 24px);max-width:none;font:11px var(--mono);white-space:nowrap}.swarm-panel .live-dot{width:6px;flex:none}
+.swarm-panel .build-progress{top:-18px;bottom:auto;height:2px;max-width:100%;left:0;border-radius:2px}.swarm-panel button{font:11px var(--mono);padding:9px 11px;border-radius:10px;margin:0}
+@media(max-width:440px){.swarm-controls{right:16px;bottom:max(16px,env(safe-area-inset-bottom))}.project{border-radius:18px}}

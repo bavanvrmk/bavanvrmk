@@ -151,10 +151,12 @@
   reduced.addEventListener('change',finish);
   const toggle = $('#swarm-toggle'), panel = $('#swarm-panel');
   function setPanel(open) {
-    panel.hidden = !open;
+    controls.classList.toggle('is-expanded', open);
+    panel.inert = !open;
+    panel.setAttribute('aria-hidden', String(!open));
     toggle.setAttribute('aria-expanded', String(open));
   }
-  toggle.addEventListener('click', e => setPanel(e.pointerType === 'mouse' ? true : panel.hidden));
+  toggle.addEventListener('click', e => setPanel(e.pointerType === 'mouse' ? true : !controls.classList.contains('is-expanded')));
   controls.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') setPanel(true); });
   controls.addEventListener('pointerleave', e => {
     if (e.pointerType === 'mouse' && !panel.contains(document.activeElement)) setPanel(false);
@@ -169,6 +171,7 @@
   controls.addEventListener('keydown', e => {
     if (e.key === 'Escape') { toggle.focus(); setPanel(false); }
   });
+  setPanel(false);
   controls.hidden=false;
   // Allow layout and fonts to settle before measuring; all content is visible if JS fails.
   document.fonts.ready.then(start);
